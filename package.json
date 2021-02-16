@@ -1,0 +1,38 @@
+{
+    "name": "proyecto-api",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "start": "node ./bin/www",
+        "dev": "nodemon ./bin/www",
+        "start-cert": "node ./bin/www ENVIRONMENT=certification"
+    },
+    "dependencies": {
+        "basic-auth": "^2.0.1",
+        "basic-ftp": "^4.6.2",
+        "compression": "^1.7.4",
+        "convert-array-to-csv": "^2.0.0",
+        "cookie-parser": "~1.4.4",
+        "cors": "^2.8.5",
+        "debug": "~2.6.9",
+        "express": "~4.16.1",
+        "express-json2csv": "^0.3.6",
+         "helmet": "^3.21.2",
+        "http-status-codes": "^1.4.0",
+        "json-2-csv": "^3.7.6",
+        "json-validation": "^1.0.4",
+        "json2csv": "^5.0.1",
+        "jsonwebtoken": "^8.5.1",
+        "moment": "^2.24.0",
+        "mongoose": "5.7.6",
+        "morgan": "~1.9.1",
+        "request": "^2.88.0",
+        "request-promise-native": "^1.0.9",
+        "swagger-ui-express": "^4.1.2",
+        "winston": "^3.2.1",
+        "xss-filters": "^1.2.7"
+    },
+    "optionalDependencies": {
+        "nodemon": "^1.17.5"
+    }
+}
