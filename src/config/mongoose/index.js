@@ -14,7 +14,7 @@ async function connect() {
         const database = config.MONGO_DATABASE;
         // const replicaSet = config.MONGO_REPLICATE_SET;
         //const mongouri = `${protocol}://${user}:${pass}@${uri}/${database}`;
-        const mongouri = 'mongodb://localhost:27017/gamification';
+        const mongouri = '';
         //logger.info(`mongouri: ${mongouri}`);
         await mongoose.connect(mongouri, {
             useNewUrlParser: true,
