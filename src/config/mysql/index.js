@@ -1,30 +1,13 @@
-var mysql      = require('mysql');
-const logger = require('../logger')('mongoose');
+const mysql = require('mysql');
 const config = require('../../../config');
+logger = require('../../config/logger')('MySQLConeect');
 
-var connection = mysql.createConnection({
-    host     : config.MYSQL_HOST,
-    database : config.MYSQL_DATABASE,
-    user     : config.MYSQL_USER,
-    password : config.MYSQL_PASS,
-});
+var connection = mysql.createPool({
+    host: 'localhost',
+    user: 'root',
+    password: 'password',
+    database: 'personas',
+    insecureAuth : true
+  });
 
-connection.connect(function(err) {
-    if (err) {
-        console.error('Error connecting: ' + err.stack);
-        return;
-    }
-
-    console.log('Connected as id ' + connection.threadId);
-});
-
-connection.queryPersonas('SELECT * FROM personas', function (error, results, fields) {
-    if (error)
-        throw error;
-
-    results.forEach(result => {
-        console.log(result);
-    });
-});
-
-connection.end();
+module.exports = connection;

@@ -3,7 +3,6 @@
 const logger = require('../src/config/logger')('www');
 var app = require('../app');
 var http = require('http');
-var mongoose = require('../src/config/mongoose');
 
 /**
  * Get port from environment and store in Express.
@@ -15,21 +14,11 @@ app.set('port', port);
  * Create HTTP server.
  */
 var server = http.createServer(app);
-/**
- * First connect with mongo db throw mongoose ODM
- */
-mongoose.connect()
-    .then(connected => {
-        /**
-         * Listen on provided port, on all network interfaces.
-         */
-        server.listen(port);
-        server.on('error', onError);
-        server.on('listening', onListening);
-    })
-    .catch(err => {
-        logger.error(err);
-});
+
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
+    
 /**
  * Normalize a port into a number, string, or false.
  */

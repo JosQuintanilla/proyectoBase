@@ -6,7 +6,7 @@ const logger = require('../../config/logger')('middleware:userController'),
 
 
 const getListUser = async function (req,res,next){
-
+    logger.silly(`getListUser - init`);
     const result = await UserService.getListUser();
     if(result != null && result != undefined && result.message != null && result.message != undefined){
         res.status(500).json(result);
