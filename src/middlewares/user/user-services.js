@@ -18,12 +18,22 @@ const getListUser = async function(){
                 return;
             }
             if (result.length) {
-                logger.silly(`getListUser - found: ${result[0]}`);
-                console.log("found customer: ", result[0]);
-                return result[0];
-              }
-            
-          }); 
+                logger.silly(`getListUser result: ${JSON.stringify(result, null, 2)}`);
+                var personList = []
+                result.forEach(persona => {
+                    logger.silly(`getListUser uno`);
+                    var per = {
+                        rut: persona.rut,
+                        nombre:persona.nombre,
+                        apellido:persona.apellido
+                    }
+                    personList.push(per);
+                });
+
+
+                return result;
+            }
+        }); 
 
     } catch (error) {
         logger.error(`getListUser Error: ${error}`);
